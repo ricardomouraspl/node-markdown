@@ -1,11 +1,11 @@
 const chalk = require('chalk');
+const fs = require('fs');
 
-console.log(chalk.blue('Vamos começar!'));
-
-const paragrafo = 'Texto retornado por uma função';
-
-function texto(string) {
-    return string;
+function readFile(filePath) {
+    const enconding = 'utf-8';
+    fs.readFile(filePath, enconding, (_, texto) => {
+        console.log(chalk.green(texto));
+    });
 }
 
-console.log(texto(paragrafo));
+readFile('./arquivos/texto1.md');
