@@ -16,4 +16,16 @@ function readFile(filePath) {
     });
 }
 
-readFile('./arquivos');
+function readFileAsPromise(filePath) {
+    const enconding = 'utf-8';
+    fs.promises
+        .readFile(filePath, enconding)
+        .then((text) => {
+            console.log(text);
+        })
+        .catch((error) => {
+            console.log(throwErrorException(error));
+        });
+}
+
+readFileAsPromise('./arquivos/texto1.md');
